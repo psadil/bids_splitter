@@ -19,7 +19,7 @@ import click
 @click.option(
     "--dest",
     type=click.Path(
-        exists=True,
+        exists=False,
         file_okay=False,
         dir_okay=True,
         resolve_path=True,
