@@ -34,10 +34,10 @@ def main(src: pathlib.Path, dest: pathlib.Path) -> None:
         sub_out = sub_out_root / sub.name
         sub_out.mkdir(exist_ok=True, parents=True)
         for dirpath, _, filenames in os.walk(sub):
-            rdpath = pathlib.Path(dirpath).relative_to(sub)
-            d = sub_out / rdpath
+            dpath = pathlib.Path(dirpath)
+            d = sub_out / dpath.relative_to(sub)
             d.mkdir(exist_ok=True)
             for filename in filenames:
-                pathlib.Path(d / filename).symlink_to(sub / rdpath / filename)
+                pathlib.Path(d / filename).symlink_to(dpath / filename)
         for toplevel in ["README", "dataset_description.json"]:
             (sub_out_root / toplevel).symlink_to(src / toplevel)
