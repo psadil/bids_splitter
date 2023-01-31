@@ -39,4 +39,4 @@ def main(src: pathlib.Path, dest: pathlib.Path) -> None:
             for filename in filenames:
                 pathlib.Path(d / filename).symlink_to(src / d / filename)
         for toplevel in ["README", "dataset_description.json"]:
-            (sub_out / toplevel).symlink_to(src / toplevel)
+            (sub_out_root / toplevel).symlink_to(src / toplevel)
