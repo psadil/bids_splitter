@@ -1,0 +1,15 @@
+[project]
+name = "bids_splitter"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.8"
+
+[project.scripts]
+split_bids = "bids_splitter.main:main"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
